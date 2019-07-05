@@ -1,0 +1,32 @@
+-
+	var devCards = [
+	{
+	icon: './img/gulp.svg'
+	},
+	{
+	icon: './img/pug.svg'
+	},
+	{
+	icon: './img/sass.svg'
+	},
+	{
+	icon: './img/jquery.svg'
+	},
+	{
+	icon: './img/js.svg'
+	},
+	{
+	icon: './img/php.svg'
+	}
+	];
+.container
+	.row
+		each item, index in devCards
+			div(class=(index === 0 || index === 5 ? 'col-m-6 col-md-8 offset-md-2 mb-5' : 'col-m-6 col-md-3 mb-5'))
+				figure.item
+					.item-icon
+						|
+						|
+						img(src="" + item.icon alt="Icon")
+						|
+						|

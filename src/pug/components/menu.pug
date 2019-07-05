@@ -1,0 +1,33 @@
+-
+	var nav = [
+	{
+	href: '',
+	value: ''
+	},
+	{
+	href: '',
+	value: ''
+	},
+	{
+	href: '',
+	value: ''
+	},
+	{
+	href: '',
+	value: ''
+	},
+	{
+	href: '',
+	value: ''
+	},
+	{
+	href: '',
+	value: ''
+	}
+	];
+.nav
+	nav
+		ul
+			each val, index in nav
+				li(class=(value === title ? "selected" : ""))
+					a(class="anchor" href= "#" + val.href)= val.value

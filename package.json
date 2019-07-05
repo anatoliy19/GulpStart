@@ -1,0 +1,65 @@
+{
+  "name": "gulpStart",
+  "version": "1.1.0",
+  "description": "Full Stack development",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VitaliiThir"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "build"
+  },
+  "keywords": [
+    "ES6 Modules",
+    "Sass",
+    "SVG"
+  ],
+  "author": "Vitaly T.",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.1.3",
+    "browser-sync": "^2.26.7",
+    "cache-loader": "^3.0.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-beautify-code": "^2.0.4",
+    "gulp-cache": "^1.1.2",
+    "gulp-cheerio": "^0.6.3",
+    "gulp-file-include": "^2.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-pug": "^4.0.1",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-style-aliases": "^1.1.11",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-uglify": "^3.0.1",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "imagemin-jpeg-recompress": "^6.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "node-sass": "^4.12.0",
+    "terser-webpack-plugin": "^1.3.0",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "webpack": "^4.35.2",
+    "webpack-merge": "^4.2.1",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "gulp-cached": "^1.1.1",
+    "gulp-dependents": "^1.2.3",
+    "jquery": "^3.4.1",
+    "rfs": "^7.1.9",
+    "svgxuse": "^1.2.6"
+  }
+}

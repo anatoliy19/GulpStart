@@ -1,0 +1,347 @@
+@import "variables";
+@import "media-queries";
+
+@mixin mx-auto {
+  margin: {
+   left: auto;
+   right: auto;
+ }
+}
+
+//Bread crumb
+@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $background: false, $backgroundPath: "") {
+  .bread-crumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: rem($fz+px);
+    margin: $margin;
+
+    a, span {
+      flex: 0 0 auto;
+      word-break: break-word;
+      line-height: 1.2em;
+      font-size: inherit;
+      font-weight: $fw;
+    }
+
+    a {
+
+      span {
+        color: inherit;
+        font-weight: inherit;
+        transition: color $transition;
+        @if $background {
+          position: relative;
+          display: block;
+          padding-right: 2em;
+          &::after {
+            position: absolute;
+            top: 0;
+            content: "" + $content;
+            bottom: 0;
+            width: 2em;
+            margin: 0;
+            background-image: url('' + $backgroundPath);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transition: transform $transition;
+          }
+          &:hover {
+            &::after {
+              transform: rotate(-180deg);
+            }
+          }
+          } @else {
+            &::after {
+              content: "" + $content;
+              margin: 0 .5em;
+              color: inherit;
+            }
+          }
+        }
+
+        &:hover {
+          span {
+            color: $base-color;
+          }
+        }
+      }
+    }
+  }
+
+@mixin pseudo($display: block, $pos: absolute, $content: '', $size: true){
+    content: $content;
+    display: $display;
+    position: $pos;
+    @if $size {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+}
+  
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+     &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+    } @else {
+     padding-top: $padding;
+   }
+}
+
+@mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $font-size: 14px) {
+  label.error {
+    font-size: $font-size;
+    color: $colorError;
+  }
+  input.error {
+    border-color: $borderError;
+  }
+  input.valid {
+    border-color: $borderValid;
+  }
+  textarea.error {
+    border-color: $borderError;
+  }
+  textarea.valid {
+    border-color: $borderValid;
+  }
+}
+
+@mixin absolute($width: false) {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  @if $width {
+    width: 100%;
+  }
+}
+
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin blik($loop: .2, $center: .4, $speed: 120ms) {
+  &::after {
+    @include absolute;
+    content: "";
+    pointer-events: none;
+    background-image: linear-gradient(45deg, transparent, transparent, transparent);
+  }
+  &:hover {
+    &::after {
+      animation: blik $speed linear;
+    }
+  }
+
+  @keyframes blik {
+    0% {
+      background-image: linear-gradient(45deg, rgba(#fff, $loop), transparent, transparent);
+    }
+    50% {
+      background-image: linear-gradient(45deg, transparent, rgba(#fff, $center), transparent);
+    }
+    100% {
+      background-image: linear-gradient(45deg, transparent, transparent, rgba(#fff, $loop));
+    }
+  }
+}
+
+@mixin objectFit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@mixin background($repeat: no-repeat, $position: center center, $size: cover) {
+  background-repeat: $repeat;
+  background-position: $position;
+  background-size: $size;
+}
+
+@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-wrap: normal) {
+  font: {
+    size: $font-size;
+    weight: $font-weight;
+    style: $font-style;
+  }
+  color: $color;
+  line-height: $line-height;
+  word-wrap: $word-wrap;
+}
+
+/*Media query for browsers*/
+@mixin media-IE {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+@mixin media-edge {
+  @supports (-ms-ime-align:auto) {
+    .selector {
+      property: value;
+    }
+    @content;
+  }
+}
+/*END Media query for browsers*/
+
+@mixin scrollBar {
+  html {
+    width: 100vw;
+    /*IE 11*/
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    /*FireFox*/
+    scrollbar-width: thin;
+    scrollbar-color: $fireFoxTrackColor $fireFoxThumbColor;
+
+    /*WebKit*/
+    ::-webkit-scrollbar {
+      width: $chromeTrackWidth;
+      background: none;
+    }
+    ::-webkit-scrollbar-button {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: $chromeTrackColor;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: $chromeThumbColor;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-corner {
+      height: 8px;
+      width: 8px;
+      background-color: rgba(#fff, .2);
+    }
+
+  }
+}
+
+/*Функция, отвечающая за удаления единиц измерения в указании ширины родителя*/
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin padding(
+  $parentWidth,     /*Ширина родителя*/
+
+  $pt: false,       /*Padding-top*/     /*Важно! Если нужно задать три разных значения, указывать необходимо все четыре в том же порядке.*/
+  $pr: false,       /*Padding-right*/   /* Пример: ($parentWidth, 25, 0, 15, 10)*/
+  $pb: false,       /*Padding-bottom*/
+  $pl: false,       /*Padding-left*/
+
+  $ptb: false,      /*Padding-top/bottom*/
+  $px: false,       /*Padding-left/right*/
+  $p: false         /*Padding-top/right/bottom/left*/
+  ) {
+
+  $parentWidth: strip-unit($parentWidth);
+
+  @if $pt {
+    padding-top: #{$pt / $parentWidth * 100%};
+  }
+  @if $pr {
+    padding-right: #{$pr / $parentWidth * 100%};
+  }
+  @if $pb {
+    padding-bottom: #{$pb / $parentWidth * 100%};
+  }
+  @if $pl {
+    padding-left: #{$pl / $parentWidth * 100%};
+  }
+  @if $ptb {
+    $ptb: #{$ptb / $parentWidth * 100%};
+    @each $top-bottom in top, bottom {
+      padding-#{$top-bottom}: $ptb;
+    }
+  }
+  @if $px {
+    $px: #{$px / $parentWidth * 100%};
+    @each $left-right in left, right {
+      padding-#{$left-right}: $px;
+    }
+  }
+  @if $p {
+    $p: #{$p / $parentWidth * 100%};
+    @each $all in top, right, bottom, left {
+      padding-#{$all}: $p;
+    }
+  }
+}
+
+@mixin margin(
+  $parentWidth: 0,
+  $mt: false,
+  $mr: false,
+  $mb: false,
+  $ml: false,
+  $mtb: false,
+  $m: false,
+  $mx: false
+  ) {
+
+  $parentWidth: strip-unit($parentWidth);
+
+  @if $mt {
+    margin-top: #{$mt / $parentWidth * 100%};
+  }
+  @if $mr {
+    margin-right: #{$mr / $parentWidth * 100%};
+  }
+  @if $mb {
+    margin-bottom: #{$mb / $parentWidth * 100%};
+  }
+  @if $ml {
+    margin-left: #{$ml / $parentWidth * 100%};
+  }
+  @if $mtb {
+    $mtb: #{$mtb / $parentWidth * 100%};
+    @each $top-bottom in top, bottom {
+      margin-#{$top-bottom}: $mtb;
+    }
+  }
+  @if $mx {
+    $mx: #{$mx / $parentWidth * 100%};
+    @each $left-right in left, right {
+      margin-#{$left-right}: $mx;
+    }
+  }
+  @if $m {
+    $m: #{$m / $parentWidth * 100%};
+    @each $all in top, right, bottom, left {
+      margin-#{$all}: $m;
+    }
+  }
+}
