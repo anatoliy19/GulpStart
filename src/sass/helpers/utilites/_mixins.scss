@@ -3,115 +3,115 @@
 
 @mixin mx-auto {
   margin: {
-   left: auto;
-   right: auto;
- }
+	left: auto;
+	right: auto;
+  }
 }
 
 //Bread crumb
 @mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $background: false, $backgroundPath: "") {
   .bread-crumb {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: rem($fz+px);
-    margin: $margin;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: rem($fz+px);
+	margin: $margin;
 
-    a, span {
-      flex: 0 0 auto;
-      word-break: break-word;
-      line-height: 1.2em;
-      font-size: inherit;
-      font-weight: $fw;
-    }
+	a, span {
+	  flex: 0 0 auto;
+	  word-break: break-word;
+	  line-height: 1.2em;
+	  font-size: inherit;
+	  font-weight: $fw;
+	}
 
-    a {
+	a {
 
-      span {
-        color: inherit;
-        font-weight: inherit;
-        transition: color $transition;
-        @if $background {
-          position: relative;
-          display: block;
-          padding-right: 2em;
-          &::after {
-            position: absolute;
-            top: 0;
-            content: "" + $content;
-            bottom: 0;
-            width: 2em;
-            margin: 0;
-            background-image: url('' + $backgroundPath);
-            background-size: 50%;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            transition: transform $transition;
-          }
-          &:hover {
-            &::after {
-              transform: rotate(-180deg);
-            }
-          }
-          } @else {
-            &::after {
-              content: "" + $content;
-              margin: 0 .5em;
-              color: inherit;
-            }
-          }
-        }
+	  span {
+		color: inherit;
+		font-weight: inherit;
+		transition: color $transition;
+		@if $background {
+		  position: relative;
+		  display: block;
+		  padding-right: 2em;
+		  &::after {
+			position: absolute;
+			top: 0;
+			content: "" + $content;
+			bottom: 0;
+			width: 2em;
+			margin: 0;
+			background-image: url('' + $backgroundPath);
+			background-size: 50%;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			transition: transform $transition;
+		  }
+		  &:hover {
+			&::after {
+			  transform: rotate(-180deg);
+			}
+		  }
+		} @else {
+		  &::after {
+			content: "" + $content;
+			margin: 0 .5em;
+			color: inherit;
+		  }
+		}
+	  }
 
-        &:hover {
-          span {
-            color: $base-color;
-          }
-        }
-      }
-    }
+	  &:hover {
+		span {
+		  color: $base-color;
+		}
+	  }
+	}
   }
-
-@mixin pseudo($display: block, $pos: absolute, $content: '', $size: true){
-    content: $content;
-    display: $display;
-    position: $pos;
-    @if $size {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
 }
-  
+
+@mixin pseudo($display: block, $pos: absolute, $content: '', $size: true) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @if $size {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  }
+}
+
 @mixin responsive-ratio($x,$y, $pseudo: false) {
-    $padding: unquote( ( $y / $x ) * 100 + '%' );
-    @if $pseudo {
-     &:before {
-      @include pseudo($pos: relative);
-      width: 100%;
-      padding-top: $padding;
-    }
-    } @else {
-     padding-top: $padding;
-   }
+  $padding: unquote(( $y / $x ) * 100 + '%');
+  @if $pseudo {
+	&:before {
+	  @include pseudo($pos: relative);
+	  width: 100%;
+	  padding-top: $padding;
+	}
+  } @else {
+	padding-top: $padding;
+  }
 }
 
 @mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $font-size: 14px) {
   label.error {
-    font-size: $font-size;
-    color: $colorError;
+	font-size: $font-size;
+	color: $colorError;
   }
   input.error {
-    border-color: $borderError;
+	border-color: $borderError;
   }
   input.valid {
-    border-color: $borderValid;
+	border-color: $borderValid;
   }
   textarea.error {
-    border-color: $borderError;
+	border-color: $borderError;
   }
   textarea.valid {
-    border-color: $borderValid;
+	border-color: $borderValid;
   }
 }
 
@@ -123,49 +123,59 @@
   bottom: 0;
   right: 0;
   @if $width {
-    width: 100%;
+	width: 100%;
   }
 }
 
 @mixin placeholder {
-  &.placeholder { @content; }
-  &:-moz-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
+  &.placeholder {
+	@content;
+  }
+  &:-moz-placeholder {
+	@content;
+  }
+  &::-moz-placeholder {
+	@content;
+  }
+  &:-ms-input-placeholder {
+	@content;
+  }
+  &::-webkit-input-placeholder {
+	@content;
+  }
 }
 
 @mixin clearfix {
   &:after {
-    content: "";
-    display: table;
-    clear: both;
+	content: "";
+	display: table;
+	clear: both;
   }
 }
 
 @mixin blik($loop: .2, $center: .4, $speed: 120ms) {
   &::after {
-    @include absolute;
-    content: "";
-    pointer-events: none;
-    background-image: linear-gradient(45deg, transparent, transparent, transparent);
+	@include absolute;
+	content: "";
+	pointer-events: none;
+	background-image: linear-gradient(45deg, transparent, transparent, transparent);
   }
   &:hover {
-    &::after {
-      animation: blik $speed linear;
-    }
+	&::after {
+	  animation: blik $speed linear;
+	}
   }
 
   @keyframes blik {
-    0% {
-      background-image: linear-gradient(45deg, rgba(#fff, $loop), transparent, transparent);
-    }
-    50% {
-      background-image: linear-gradient(45deg, transparent, rgba(#fff, $center), transparent);
-    }
-    100% {
-      background-image: linear-gradient(45deg, transparent, transparent, rgba(#fff, $loop));
-    }
+	0% {
+	  background-image: linear-gradient(45deg, rgba(#fff, $loop), transparent, transparent);
+	}
+	50% {
+	  background-image: linear-gradient(45deg, transparent, rgba(#fff, $center), transparent);
+	}
+	100% {
+	  background-image: linear-gradient(45deg, transparent, transparent, rgba(#fff, $loop));
+	}
   }
 }
 
@@ -184,9 +194,9 @@
 
 @mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-wrap: normal) {
   font: {
-    size: $font-size;
-    weight: $font-weight;
-    style: $font-style;
+	size: $font-size;
+	weight: $font-weight;
+	style: $font-style;
   }
   color: $color;
   line-height: $line-height;
@@ -196,51 +206,57 @@
 /*Media query for browsers*/
 @mixin media-IE {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    @content;
+	@content;
   }
 }
+
 @mixin media-edge {
   @supports (-ms-ime-align:auto) {
-    .selector {
-      property: value;
-    }
-    @content;
+	.selector {
+	  property: value;
+	}
+	@content;
   }
 }
+
 /*END Media query for browsers*/
 
 @mixin scrollBar {
   html {
-    width: 100vw;
-    /*IE 11*/
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+	width: 100vw;
+	/*IE 11*/
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 
-    /*FireFox*/
-    scrollbar-width: thin;
-    scrollbar-color: $fireFoxTrackColor $fireFoxThumbColor;
+	/*FireFox*/
+	scrollbar-width: thin;
+	scrollbar-color: $fireFoxTrackColor $fireFoxThumbColor;
 
-    /*WebKit*/
-    ::-webkit-scrollbar {
-      width: $chromeTrackWidth;
-      background: none;
-    }
-    ::-webkit-scrollbar-button {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: $chromeTrackColor;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: $chromeThumbColor;
-      border-radius: 5px;
-    }
-    ::-webkit-scrollbar-corner {
-      height: 8px;
-      width: 8px;
-      background-color: rgba(#fff, .2);
-    }
+	/*WebKit*/
+	::-webkit-scrollbar {
+	  width: $chromeTrackWidth;
+	  background: none;
+	}
+
+	::-webkit-scrollbar-button {
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+
+	::-webkit-scrollbar-track {
+	  background-color: $chromeTrackColor;
+	}
+
+	::-webkit-scrollbar-thumb {
+	  background-color: $chromeThumbColor;
+	  border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-corner {
+	  height: 8px;
+	  width: 8px;
+	  background-color: rgba(#fff, .2);
+	}
 
   }
 }
@@ -248,7 +264,7 @@
 /*Функция, отвечающая за удаления единиц измерения в указании ширины родителя*/
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+	@return $number / ($number * 0 + 1);
   }
 
   @return $number;
@@ -265,39 +281,39 @@
   $ptb: false,      /*Padding-top/bottom*/
   $px: false,       /*Padding-left/right*/
   $p: false         /*Padding-top/right/bottom/left*/
-  ) {
+) {
 
   $parentWidth: strip-unit($parentWidth);
 
   @if $pt {
-    padding-top: #{$pt / $parentWidth * 100%};
+	padding-top: #{$pt / $parentWidth * 100%};
   }
   @if $pr {
-    padding-right: #{$pr / $parentWidth * 100%};
+	padding-right: #{$pr / $parentWidth * 100%};
   }
   @if $pb {
-    padding-bottom: #{$pb / $parentWidth * 100%};
+	padding-bottom: #{$pb / $parentWidth * 100%};
   }
   @if $pl {
-    padding-left: #{$pl / $parentWidth * 100%};
+	padding-left: #{$pl / $parentWidth * 100%};
   }
   @if $ptb {
-    $ptb: #{$ptb / $parentWidth * 100%};
-    @each $top-bottom in top, bottom {
-      padding-#{$top-bottom}: $ptb;
-    }
+	$ptb: #{$ptb / $parentWidth * 100%};
+	@each $top-bottom in top, bottom {
+	  padding-#{$top-bottom}: $ptb;
+	}
   }
   @if $px {
-    $px: #{$px / $parentWidth * 100%};
-    @each $left-right in left, right {
-      padding-#{$left-right}: $px;
-    }
+	$px: #{$px / $parentWidth * 100%};
+	@each $left-right in left, right {
+	  padding-#{$left-right}: $px;
+	}
   }
   @if $p {
-    $p: #{$p / $parentWidth * 100%};
-    @each $all in top, right, bottom, left {
-      padding-#{$all}: $p;
-    }
+	$p: #{$p / $parentWidth * 100%};
+	@each $all in top, right, bottom, left {
+	  padding-#{$all}: $p;
+	}
   }
 }
 
@@ -310,38 +326,38 @@
   $mtb: false,
   $m: false,
   $mx: false
-  ) {
+) {
 
   $parentWidth: strip-unit($parentWidth);
 
   @if $mt {
-    margin-top: #{$mt / $parentWidth * 100%};
+	margin-top: #{$mt / $parentWidth * 100%};
   }
   @if $mr {
-    margin-right: #{$mr / $parentWidth * 100%};
+	margin-right: #{$mr / $parentWidth * 100%};
   }
   @if $mb {
-    margin-bottom: #{$mb / $parentWidth * 100%};
+	margin-bottom: #{$mb / $parentWidth * 100%};
   }
   @if $ml {
-    margin-left: #{$ml / $parentWidth * 100%};
+	margin-left: #{$ml / $parentWidth * 100%};
   }
   @if $mtb {
-    $mtb: #{$mtb / $parentWidth * 100%};
-    @each $top-bottom in top, bottom {
-      margin-#{$top-bottom}: $mtb;
-    }
+	$mtb: #{$mtb / $parentWidth * 100%};
+	@each $top-bottom in top, bottom {
+	  margin-#{$top-bottom}: $mtb;
+	}
   }
   @if $mx {
-    $mx: #{$mx / $parentWidth * 100%};
-    @each $left-right in left, right {
-      margin-#{$left-right}: $mx;
-    }
+	$mx: #{$mx / $parentWidth * 100%};
+	@each $left-right in left, right {
+	  margin-#{$left-right}: $mx;
+	}
   }
   @if $m {
-    $m: #{$m / $parentWidth * 100%};
-    @each $all in top, right, bottom, left {
-      margin-#{$all}: $m;
-    }
+	$m: #{$m / $parentWidth * 100%};
+	@each $all in top, right, bottom, left {
+	  margin-#{$all}: $m;
+	}
   }
 }

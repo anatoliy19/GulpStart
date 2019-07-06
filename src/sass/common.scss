@@ -1,6 +1,8 @@
-@import 'helpers/utilites/_general-needs.scss';
+@import 'helpers/utilites/general-needs';
 
-/* Global styles start*/
+@include scrollBar;
+
+/*Styles start*/
 * {
   outline: none;
 }
@@ -91,7 +93,7 @@ footer {
   color: #fff;
 }
 
-/*Global styles END*/
+/*Styles start END*/
 
 //Presentation
 body {
