@@ -1,4 +1,3 @@
-mixin sectionTitle(title, text)
-	.section-title
-		h2= title
-		p= text
+mixin icon(name)
+	svg
+		use(xlink:href="./img/sprite.svg#" + name)

@@ -1,13 +1,13 @@
 import {variables as $v} from '../modules/variables';
 
 export function preloader() {
-	$(window).on('load', function () {
+	$v.$window.on('load', function () {
 		let preloader = $('.preloader');
 		let preloaderItem = preloader.find('.preloader-item');
 		preloaderItem.fadeOut();
 		preloader.delay(350).fadeOut('slow');
 		setTimeout(function () {
-			$('body').removeClass('overflow');
+			$v.$body.removeClass('overflow');
 		}, 450);
 	});
 }
@@ -22,7 +22,7 @@ export function globalWrapper() {
 	setTimeout(function () {
 		let globalWrapper = $('.global-wrapper');
 
-		if (globalWrapper.height() > $(window).height()) {
+		if (globalWrapper.height() > $v.$window.height()) {
 			globalWrapper.css({
 				'overflow': 'visible',
 				'height': 'auto'
@@ -36,10 +36,10 @@ export function globalWrapper() {
 	}, 50);
 }
 
-export function clickOffsetTopScroll() {
-	let anchorScroll = $('.anchor');
+export function scrollAnimate(speed) {
+	let anchor = $('.anchor');
 
-	anchorScroll.on("click", handler);
+	anchor.on("click", handler);
 
 	function handler(event) {
 		let hash = event.target.hash;
@@ -48,19 +48,19 @@ export function clickOffsetTopScroll() {
 			let tag = $(hash);
 			if ($(hash).length) {
 				let offset = tag.offset().top;
-				$('html, body').stop().animate({scrollTop: offset}, 900);
+				$('html, body').stop().animate({scrollTop: offset}, speed);
 			}
 		}
 	}
 }
 
-export function clickOffsetTopScrollUnderPage() {
+export function scrollAnimateUnderPage(speed, timeout) {
 	let myHash = location.hash;
 
-	if (myHash[1] != undefined) {
+	if (myHash[1] !== undefined) {
 		setTimeout(function () {
-			$('html, body').animate({scrollTop: $(myHash).offset().top}, 900);
-		}, 2000);
+			$('html, body').animate({scrollTop: $(myHash).offset().top}, speed);
+		}, timeout);
 	}
 
 	location.hash = '';
@@ -194,8 +194,8 @@ export function objectFitFromIe() {
 
 			imageCover.imageResponsive();
 
-			$(window).on('resize', function () {
-				let winWidth = $(window).width();
+			$v.$window.on('resize', function () {
+				let winWidth = $v.$window.width();
 
 				if (winWidth >= 1200 || winWidth >= 992 || winWidth >= 768 || winWidth >= 576 || winWidth > 375) {
 					setTimeout(function () {
@@ -258,18 +258,10 @@ export function getBooleanAttr(attr) {
 	return attr === 'true';
 }
 
-export function isIe() {
-	return document.documentMode || /Edge/.test(navigator.userAgent)
-}
-
 export function createSvg(tag, attrs) {
 	let el = document.createElementNS('http://www.w3.org/2000/svg', tag);
 	for (let k in attrs) el.setAttribute(k, attrs[k]);
 	return el;
-}
-
-export function getScrollbarWidth() {
-	return window.innerWidth - document.documentElement.clientWidth;
 }
 
 export function getBottomOffset(elem) {

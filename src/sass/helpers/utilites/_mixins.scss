@@ -186,7 +186,8 @@
   overflow: hidden;
 }
 
-@mixin background($repeat: no-repeat, $position: center center, $size: cover) {
+@mixin background($path: "", $repeat: no-repeat, $position: center center, $size: cover) {
+  background-image: url('' + $path);
   background-repeat: $repeat;
   background-position: $position;
   background-size: $size;
@@ -271,16 +272,16 @@
 }
 
 @mixin padding(
-  $parentWidth,     /*Ширина родителя*/
+  $parentWidth,
 
-  $pt: false,       /*Padding-top*/     /*Важно! Если нужно задать три разных значения, указывать необходимо все четыре в том же порядке.*/
-  $pr: false,       /*Padding-right*/   /* Пример: ($parentWidth, 25, 0, 15, 10)*/
-  $pb: false,       /*Padding-bottom*/
-  $pl: false,       /*Padding-left*/
+  $pt: false,
+  $pr: false,
+  $pb: false,
+  $pl: false,
 
-  $ptb: false,      /*Padding-top/bottom*/
-  $px: false,       /*Padding-left/right*/
-  $p: false         /*Padding-top/right/bottom/left*/
+  $ptb: false,
+  $px: false,
+  $p: false
 ) {
 
   $parentWidth: strip-unit($parentWidth);

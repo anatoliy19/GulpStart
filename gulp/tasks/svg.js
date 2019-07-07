@@ -10,8 +10,6 @@ module.exports = function() {
 			run: function($) {
 				$('[fill]').removeAttr('fill');
 				$('[stroke]').removeAttr('stroke');
-				$('[width]').removeAttr('width');
-				$('[height]').removeAttr('height');
 				$('[style]').removeAttr('style');
 			},
 			parserOptions: {xmlMode: true}
