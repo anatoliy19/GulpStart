@@ -13,7 +13,7 @@
 	### Installation:
 	> Note: latest versions of **[node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/)** must be installed!
 	```sh
-	$ git clone https://github.com/ToTibis/gulp4template FOLDER_NAME
+	$ git clone https://github.com/VitaliiThir/GulpStart
 	```
     ```sh
     $ cd FOLDER_NAME
