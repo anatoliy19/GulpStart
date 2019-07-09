@@ -3,5 +3,6 @@ export const variables = {
 	$document: $(document),
 	$body: $('body'),
 	animDuration: 250, // in ms
-	header: $('header.header')
+	header: $('header.header'),
+	main: $('main')
 };

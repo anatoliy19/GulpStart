@@ -232,7 +232,7 @@ export function sameHeight() {
 
 export function scrollActiveMenu() {
 
-	let headerLink = $('.header nav li');
+	let headerLink = $v.header.find('nav li');
 
 	headerLink.each(function () {
 		let selector = $(this).children().attr('href');

@@ -42,8 +42,10 @@ module.exports = {
 	plugins: [
 		new HardSourceWebpackPlugin(),
 		new webpack.ProvidePlugin({
-			$: 'jquery/src/core',
-			jQuery: 'jquery/src/core'
+			$: 'jquery',
+			jQuery: 'jquery',
+			'window.jQuery': 'jquery',
+			'window.$': 'jquery'
 		})
 	]
 };
