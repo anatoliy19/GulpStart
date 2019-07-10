@@ -18,24 +18,6 @@ export function typicalTableWrap() {
 	$('.typical-styles').find('table').wrap(typicalTableWrap);
 }
 
-export function globalWrapper() {
-	setTimeout(function () {
-		let globalWrapper = $('.global-wrapper');
-
-		if (globalWrapper.height() > $v.$window.height()) {
-			globalWrapper.css({
-				'overflow': 'visible',
-				'height': 'auto'
-			});
-		} else {
-			globalWrapper.css({
-				'overflow': 'hidden',
-				'height': '100%'
-			});
-		}
-	}, 50);
-}
-
 export function scrollAnimate(speed) {
 	let anchor = $('.anchor');
 

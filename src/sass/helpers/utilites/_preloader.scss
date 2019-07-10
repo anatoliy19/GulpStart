@@ -1,33 +1,33 @@
+@import "../general-needs/general-needs";
 .preloader {
-	position: fixed;
+  position: fixed;
+  overflow: hidden;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 100000;
+  &-item {
+	@include absoluteCenter(none, none);
+  }
+  &-figure {
+	position: relative;
+	width: 200px;
 	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	bottom: 0;
-	background: #000;
-	z-index: 100000;
-	&-figure {
-		height: 200px;
-		width: 200px;
-		background-image: url('../img/preloader.gif');
-		background-position: center center;
-		background-size: contain;
-		background-repeat: no-repeat;
-		margin-left: auto;
-		margin-right: auto;
+	@include responsive-ratio(1, .8, true);
+	img {
+	  @include absoluteCenter;
 	}
-	&-text {
-		font-family: Arial, sans-serif;
-		text-align: center;
-		p {
-			font-size: 18px;
-			color: #fff;
-			line-height: 1em;
-			text-shadow: 1px 1px 10px rgba(#fff, .7);
-		}
+  }
+  &-text {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	p {
+	  font-size: 18px;
+	  color: #fff;
+	  line-height: 1em;
+	  text-shadow: 1px 1px 10px rgba(#fff, .7);
 	}
+  }
 }

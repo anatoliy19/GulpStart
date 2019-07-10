@@ -126,40 +126,14 @@
   }
 }
 
-@mixin absoluteCenter($maxWidth: 100%) {
+@mixin absoluteCenter($mw: 100%, $mh: 100%) {
   position: absolute;
   display: block;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: $maxWidth;
-  max-height: $maxWidth;
-}
-
-@mixin placeholder {
-  &.placeholder {
-	@content;
-  }
-  &:-moz-placeholder {
-	@content;
-  }
-  &::-moz-placeholder {
-	@content;
-  }
-  &:-ms-input-placeholder {
-	@content;
-  }
-  &::-webkit-input-placeholder {
-	@content;
-  }
-}
-
-@mixin clearfix {
-  &:after {
-	content: "";
-	display: table;
-	clear: both;
-  }
+  max-width: $mw;
+  max-height: $mh;
 }
 
 @mixin blik($loop: .2, $center: .4, $speed: 120ms) {
@@ -202,7 +176,7 @@
   background-size: $size;
 }
 
-@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-wrap: normal) {
+@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-break: normal) {
   font: {
 	size: $font-size;
 	weight: $font-weight;
@@ -210,7 +184,7 @@
   }
   color: $color;
   line-height: $line-height;
-  word-wrap: $word-wrap;
+  word-break: $word-break;
 }
 
 /*Media query for browsers*/
@@ -268,106 +242,5 @@
 	  background-color: rgba(#fff, .2);
 	}
 
-  }
-}
-
-/*Функция, отвечающая за удаления единиц измерения в указании ширины родителя*/
-@function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-	@return $number / ($number * 0 + 1);
-  }
-
-  @return $number;
-}
-
-@mixin padding(
-  $parentWidth,
-
-  $pt: false,
-  $pr: false,
-  $pb: false,
-  $pl: false,
-
-  $ptb: false,
-  $px: false,
-  $p: false
-) {
-
-  $parentWidth: strip-unit($parentWidth);
-
-  @if $pt {
-	padding-top: #{$pt / $parentWidth * 100%};
-  }
-  @if $pr {
-	padding-right: #{$pr / $parentWidth * 100%};
-  }
-  @if $pb {
-	padding-bottom: #{$pb / $parentWidth * 100%};
-  }
-  @if $pl {
-	padding-left: #{$pl / $parentWidth * 100%};
-  }
-  @if $ptb {
-	$ptb: #{$ptb / $parentWidth * 100%};
-	@each $top-bottom in top, bottom {
-	  padding-#{$top-bottom}: $ptb;
-	}
-  }
-  @if $px {
-	$px: #{$px / $parentWidth * 100%};
-	@each $left-right in left, right {
-	  padding-#{$left-right}: $px;
-	}
-  }
-  @if $p {
-	$p: #{$p / $parentWidth * 100%};
-	@each $all in top, right, bottom, left {
-	  padding-#{$all}: $p;
-	}
-  }
-}
-
-@mixin margin(
-  $parentWidth: 0,
-  $mt: false,
-  $mr: false,
-  $mb: false,
-  $ml: false,
-  $mtb: false,
-  $m: false,
-  $mx: false
-) {
-
-  $parentWidth: strip-unit($parentWidth);
-
-  @if $mt {
-	margin-top: #{$mt / $parentWidth * 100%};
-  }
-  @if $mr {
-	margin-right: #{$mr / $parentWidth * 100%};
-  }
-  @if $mb {
-	margin-bottom: #{$mb / $parentWidth * 100%};
-  }
-  @if $ml {
-	margin-left: #{$ml / $parentWidth * 100%};
-  }
-  @if $mtb {
-	$mtb: #{$mtb / $parentWidth * 100%};
-	@each $top-bottom in top, bottom {
-	  margin-#{$top-bottom}: $mtb;
-	}
-  }
-  @if $mx {
-	$mx: #{$mx / $parentWidth * 100%};
-	@each $left-right in left, right {
-	  margin-#{$left-right}: $mx;
-	}
-  }
-  @if $m {
-	$m: #{$m / $parentWidth * 100%};
-	@each $all in top, right, bottom, left {
-	  margin-#{$all}: $m;
-	}
   }
 }

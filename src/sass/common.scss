@@ -1,4 +1,4 @@
-@import 'helpers/utilites/general-needs';
+@import 'helpers/general-needs/general-needs';
 
 @include scrollBar;
 
@@ -18,12 +18,21 @@ html {
 }
 
 body {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 
   &.overflow {
 	overflow: hidden;
   }
+}
+
+.header, main .footer {
+  flex: 0 0 auto;
+}
+
+.footer {
+  margin-top: auto;
 }
 
 ul,
@@ -71,22 +80,7 @@ textarea {
 
 svg {
   max-width: 100%;
-  max-height: 100%;
   pointer-events: none;
-}
-
-.global-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.global-wrapper-content {
-  flex: 1 0 auto;
-  overflow: hidden;
-}
-
-footer {
-  flex: 0 0 auto;
 }
 
 ::selection {
@@ -122,16 +116,19 @@ body {
 	text-transform: lowercase;
   }
 }
+
 .header {
   box-shadow: 0 5px 15px 0 rgba(#000, 0.25);
   border-bottom: 1px solid rgba(#fff, .4);
 }
+
 .footer {
   box-shadow: 0 -5px 15px 0 rgba(#000, 0.25);
   border-top: 1px solid rgba(#fff, .4);
 }
 
 main {
+
   @include mediaToUp($m) {
 	position: absolute;
 	left: 0;
@@ -155,6 +152,7 @@ main {
 	  border: 1px solid rgba(#000, .4);
 	  box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
 	  @include responsive-ratio(1, 1, true);
+
 	  p {
 		position: absolute;
 		bottom: 5px;
@@ -166,10 +164,15 @@ main {
 	  }
 
 	  img {
-		@include absoluteCenter(95%);
+		@include absoluteCenter(95%, 95%);
 	  }
 	}
   }
+
+  .block {
+	height: 500px;
+  }
 }
+
 
 
