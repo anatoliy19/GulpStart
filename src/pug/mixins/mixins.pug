@@ -1,3 +1,15 @@
 mixin icon(name)
+	|
+	|
 	svg
 		use(xlink:href="./img/sprite.svg#" + name)
+	|
+	|
+
+mixin breadCrumb(last, ...prev)
+	.bread-crumb
+		ul
+			each str, i in prev
+				li
+					a(href= i === 0 ? "index.html" : "#") #{str}
+			li= last

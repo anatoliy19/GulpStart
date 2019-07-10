@@ -1,32 +1,59 @@
--
-	var devCards = [
-	{
-	icon: './img/gulp.svg'
-	},
-	{
-	icon: './img/pug.svg'
-	},
-	{
-	icon: './img/sass.svg'
-	},
-	{
-	icon: './img/jquery.svg'
-	},
-	{
-	icon: './img/js.svg'
-	},
-	{
-	icon: './img/php.svg'
-	}
-	];
 .container
 	.row
-		each item, index in devCards
-			div(class=(index === 0 || index === 5 ? 'col-m-6 col-md-8 offset-md-2 mb-5' : 'col-m-6 col-md-3 mb-5'))
+		div.col-md-4.offset-md-2.mb-4
 				figure.item
 					.item-icon
 						|
 						|
-						img(src="" + item.icon alt="Icon")
+						img(src="./img/gulp.svg" alt="Icon")
 						|
 						|
+		div.col-md-4.mb-4
+			figure.item
+				.item-icon
+					|
+					|
+					img(src="./img/webpack.png" alt="Icon")
+					|
+					|
+		div.col-lg-4.mb-4
+			figure.item
+				.item-icon
+					p Pug
+					|
+					|
+					img(src="./img/pug.svg" alt="Icon")
+					|
+					|
+		div.col-lg-4.mb-4
+			figure.item
+				.item-icon
+					|
+					|
+					img(src="./img/sass.svg" alt="Icon")
+					|
+					|
+		div.col-lg-4.mb-4
+			figure.item
+				.item-icon
+					|
+					|
+					img(src="./img/jquery.svg" alt="Icon")
+					|
+					|
+		div.col-lg-4.offset-md-2
+			figure.item
+				.item-icon
+					|
+					|
+					img(src="./img/js.svg" alt="Icon")
+					|
+					|
+		div.col-md-4
+			figure.item
+				.item-icon
+					|
+					|
+					img(src="./img/php.svg" alt="Icon")
+					|
+					|

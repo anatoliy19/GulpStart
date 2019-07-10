@@ -11,60 +11,59 @@
 //Bread crumb
 @mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $background: false, $backgroundPath: "") {
   .bread-crumb {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	font-size: rem($fz+px);
-	margin: $margin;
+	ul {
+	  display: flex;
+	  align-items: center;
+	  flex-wrap: wrap;
+	  font-size: rem($fz+px);
+	  margin: $margin;
 
-	a, span {
-	  flex: 0 0 auto;
-	  word-break: break-word;
-	  line-height: 1.2em;
-	  font-size: inherit;
-	  font-weight: $fw;
-	}
-
-	a {
-
-	  span {
-		color: inherit;
-		font-weight: inherit;
-		transition: color $transition;
-		@if $background {
-		  position: relative;
-		  display: block;
-		  padding-right: 2em;
-		  &::after {
-			position: absolute;
-			top: 0;
-			content: "" + $content;
-			bottom: 0;
-			width: 2em;
-			margin: 0;
-			background-image: url('' + $backgroundPath);
-			background-size: 50%;
-			background-repeat: no-repeat;
-			background-position: 50% 50%;
-			transition: transform $transition;
-		  }
-		  &:hover {
-			&::after {
-			  transform: rotate(-180deg);
-			}
-		  }
-		} @else {
-		  &::after {
-			content: "" + $content;
-			margin: 0 .5em;
-			color: inherit;
-		  }
-		}
+	  li {
+		flex: 0 0 auto;
+		font-size: inherit;
+		font-weight: $fw;
+		line-height: 1.2em;
 	  }
 
-	  &:hover {
-		span {
-		  color: $base-color;
+	  li {
+		a {
+		  color: inherit;
+		  font-weight: inherit;
+		  line-height: inherit;
+		  word-break: inherit;
+		  transition: color $transition;
+		  @if $background {
+			position: relative;
+			display: block;
+			padding-right: 2em;
+			&::after {
+			  position: absolute;
+			  top: 0;
+			  content: "" + $content;
+			  bottom: 0;
+			  width: 2em;
+			  margin: 0;
+			  @include background($backgroundPath, $size: 50%, $repeat: no-repeat, $position: 50% 50%);
+			  transition: transform $transition;
+			}
+			&:hover {
+			  &::after {
+				transform: rotate(-180deg);
+			  }
+			}
+		  } @else {
+			&::after {
+			  content: "" + $content;
+			  margin: 0 .5em;
+			  color: inherit;
+			}
+		  }
+		}
+
+		&:hover {
+		  a {
+			color: $base-color;
+		  }
 		}
 	  }
 	}
