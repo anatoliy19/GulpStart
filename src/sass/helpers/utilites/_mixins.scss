@@ -126,6 +126,16 @@
   }
 }
 
+@mixin absoluteCenter($maxWidth: 100%) {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: $maxWidth;
+  max-height: $maxWidth;
+}
+
 @mixin placeholder {
   &.placeholder {
 	@content;

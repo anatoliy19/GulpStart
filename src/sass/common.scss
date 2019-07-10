@@ -2,7 +2,7 @@
 
 @include scrollBar;
 
-/*Styles start*/
+/*Starting styles*/
 * {
   outline: none;
 }
@@ -94,7 +94,11 @@ footer {
   color: #fff;
 }
 
-/*Styles start END */
+.link-wrapper {
+  display: block;
+}
+
+/*Starting styles END*/
 
 //Presentation
 body {
@@ -107,34 +111,41 @@ body {
 .footer {
   @include rfs(35);
   text-align: center;
-  color: #fff;
+  color: rgba(#fff, .9);
   font-weight: 400;
-  background-color: rgba(#000, .3);
+  background-color: rgba(#000, .25);
   line-height: 1em;
   padding: 0.5em 0;
 
   p {
-	text-shadow: 6px 6px 12px rgba(#000, 0.7);
+	text-shadow: 8px 8px 6px rgba(#000, 0.4);
 	text-transform: lowercase;
   }
 }
 .header {
   box-shadow: 0 5px 15px 0 rgba(#000, 0.25);
+  border-bottom: 1px solid rgba(#fff, .4);
 }
 .footer {
   box-shadow: 0 -5px 15px 0 rgba(#000, 0.25);
+  border-top: 1px solid rgba(#fff, .4);
 }
 
 main {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  @include mediaToUp($m) {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+  }
 
   .item {
 	width: 150px;
 	@include mx-auto;
+	@include mediaToDown($sm) {
+	  width: 100px;
+	}
 
 	&-icon {
 	  position: relative;
@@ -142,23 +153,20 @@ main {
 	  overflow: hidden;
 	  background-color: rgba(#fff, 0.1);
 	  border: 1px solid rgba(#000, .4);
-	  box-shadow: 25px 25px 25px 0 rgba(#000, 0.3);
+	  box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
 	  @include responsive-ratio(1, 1, true);
-	  padding: 5px;
 	  p {
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		right: 0;
 		text-align: center;
 		line-height: 1;
 		color: #56332B;
 	  }
 
 	  img {
-		position: absolute;
-		display: block;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		max-width: 95%;
-		max-height: 95%;
+		@include absoluteCenter(95%);
 	  }
 	}
   }
