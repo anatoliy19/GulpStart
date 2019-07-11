@@ -1,14 +1,14 @@
 import {variables as $v} from '../modules/variables';
 
-export function preloader() {
+export function preloader(delay, timeout) {
 	$v.$window.on('load', function () {
 		let preloader = $('.preloader');
 		let preloaderItem = preloader.find('.preloader-item');
 		preloaderItem.fadeOut();
-		preloader.delay(350).fadeOut('slow');
+		preloader.delay(delay).fadeOut('slow');
 		setTimeout(function () {
 			$v.$body.removeClass('overflow');
-		}, 450);
+		}, timeout);
 	});
 }
 
@@ -46,6 +46,20 @@ export function scrollAnimateUnderPage(speed, timeout) {
 	}
 
 	location.hash = '';
+}
+
+export function scrollActiveMenu() {
+
+	let headerLink = $v.header.find('nav li');
+
+	headerLink.each(function () {
+		let selector = $(this).children().attr('href');
+		let windowTop = $(window).scrollTop();
+		let sectionTop = $(selector).offset().top;
+		if (windowTop > sectionTop - 100) {
+			headerLink.removeClass('selected').filter(this).addClass('selected');
+		}
+	});
 }
 
 export function copyingText() {
@@ -210,20 +224,6 @@ export function sameHeight() {
 		};
 
 	})(jQuery);
-}
-
-export function scrollActiveMenu() {
-
-	let headerLink = $v.header.find('nav li');
-
-	headerLink.each(function () {
-		let selector = $(this).children().attr('href');
-		let windowTop = $(window).scrollTop();
-		let sectionTop = $(selector).offset().top;
-		if (windowTop > sectionTop - 100) {
-			headerLink.removeClass('selected').filter(this).addClass('selected');
-		}
-	});
 }
 
 export function getRandomArbitrary(min, max) {

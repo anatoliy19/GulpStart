@@ -1,5 +1,5 @@
 {
-  "name": "GulpStart",
+  "name": "gulpstart",
   "version": "1.1.0",
   "description": "Full Stack development",
   "main": "index.js",
@@ -14,7 +14,9 @@
   "keywords": [
     "ES6 Modules",
     "Sass",
-    "SVG"
+    "svg sprite",
+    "gulp + webpack",
+    "pug"
   ],
   "author": "Vitaly T.",
   "license": "MIT",

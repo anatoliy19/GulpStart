@@ -105,9 +105,9 @@ body {
 .footer {
   @include rfs(35);
   text-align: center;
-  color: rgba(#fff, .9);
+  color: #333;
   font-weight: 400;
-  background-color: rgba(#000, .25);
+  background-color: rgba(#000, .3);
   line-height: 1em;
   padding: 0.5em 0;
 
@@ -118,12 +118,12 @@ body {
 }
 
 .header {
-  box-shadow: 0 5px 15px 0 rgba(#000, 0.25);
+  box-shadow: 15px 15px 20px 0 rgba(#000, 0.25);
   border-bottom: 1px solid rgba(#fff, .4);
 }
 
 .footer {
-  box-shadow: 0 -5px 15px 0 rgba(#000, 0.25);
+  box-shadow: 0 -5px 40px 0 rgba(#000, 0.2);
   border-top: 1px solid rgba(#fff, .4);
 }
 
@@ -140,6 +140,7 @@ main {
   .item {
 	width: 150px;
 	@include mx-auto;
+	box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
 	@include mediaToDown($sm) {
 	  width: 100px;
 	}
@@ -149,9 +150,9 @@ main {
 	  border-radius: 3px;
 	  overflow: hidden;
 	  background-color: rgba(#fff, 0.1);
-	  border: 1px solid rgba(#000, .4);
-	  box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
+	  border: 1px ridge rgba(#000, .4);
 	  @include responsive-ratio(1, 1, true);
+	  background-image: radial-gradient(transparent, rgba(#666, .15));
 
 	  p {
 		position: absolute;
