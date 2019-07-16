@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/VitaliiThir"
+    "url": "https://github.com/VitaliiThir.git"
   },
   "scripts": {
     "start": "gulp",

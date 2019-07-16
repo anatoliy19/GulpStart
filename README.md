@@ -13,7 +13,7 @@
 	### Installation:
 	> Note: latest versions of **[node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/)** must be installed!
 	```sh
-	$ git clone https://github.com/VitaliiThir/GulpStart
+	$ git clone https://github.com/VitaliiThir/GulpStart.git
 	```
     ```sh
     $ cd FOLDER_NAME
