@@ -1,4 +1,5 @@
-@import "../general-needs/general-needs";
+@import "../general-needs/mixins";
+@import "../general-needs/rfs";
 .preloader {
   position: fixed;
   overflow: hidden;
@@ -24,7 +25,7 @@
 	font-family: Arial, sans-serif;
 	text-align: center;
 	p {
-	  font-size: 18px;
+	  @include rfs(18);
 	  color: #fff;
 	  line-height: 1em;
 	  text-shadow: 1px 1px 10px rgba(#fff, .7);

@@ -1,5 +1,5 @@
-@import "variables";
-@import "media-queries";
+@import "./variables";
+@import "./media-queries";
 
 @mixin mx-auto {
   margin: {
@@ -9,7 +9,7 @@
 }
 
 //Bread crumb
-@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $background: false, $backgroundPath: "") {
+@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $bg: false, $bgPath: "") {
   .bread-crumb {
 	ul {
 	  display: flex;
@@ -32,7 +32,8 @@
 		  line-height: inherit;
 		  word-break: inherit;
 		  transition: color $transition;
-		  @if $background {
+
+		  @if $bg {
 			position: relative;
 			display: block;
 			padding-right: 2em;
@@ -43,7 +44,7 @@
 			  bottom: 0;
 			  width: 2em;
 			  margin: 0;
-			  @include background($backgroundPath, $size: 50%, $repeat: no-repeat, $position: 50% 50%);
+			  @include background($bgPath, $size: 50%, $rep: no-repeat, $pos: 50% 50%);
 			  transition: transform $transition;
 			}
 			&:hover {
@@ -58,6 +59,7 @@
 			  color: inherit;
 			}
 		  }
+
 		}
 
 		&:hover {
@@ -95,9 +97,9 @@
   }
 }
 
-@mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $font-size: 14px) {
+@mixin formError($colorError: red, $borderError: inherit, $borderValid: inherit, $fz: 14px) {
   label.error {
-	font-size: $font-size;
+	font-size: $fz;
 	color: $colorError;
   }
   input.error {
@@ -169,22 +171,22 @@
   overflow: hidden;
 }
 
-@mixin background($path: "", $repeat: no-repeat, $position: center center, $size: cover) {
+@mixin background($path: "", $rep: no-repeat, $pos: center center, $size: cover) {
   background-image: url('' + $path);
-  background-repeat: $repeat;
-  background-position: $position;
+  background-repeat: $rep;
+  background-position: $pos;
   background-size: $size;
 }
 
-@mixin textInherit($font-size: inherit, $font-weight: inherit, $font-style: inherit, $color: inherit, $line-height: inherit,$word-break: normal) {
+@mixin textInherit($fz: inherit, $fw: inherit, $fs: inherit, $color: inherit, $lh: inherit,$wb: normal) {
   font: {
-	size: $font-size;
-	weight: $font-weight;
-	style: $font-style;
+	size: $fz;
+	weight: $fw;
+	style: $fs;
   }
   color: $color;
-  line-height: $line-height;
-  word-break: $word-break;
+  line-height: $lh;
+  word-break: $wb;
 }
 
 /*Media query for browsers*/

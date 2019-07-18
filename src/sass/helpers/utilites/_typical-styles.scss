@@ -1,4 +1,7 @@
-@import "../general-needs/general-needs";
+@import "../general-needs/rem";
+@import "../general-needs/rfs";
+@import "../general-needs/mixins";
+@import "../general-needs/functions";
 
 .typical-styles {
   h1, h2, h3, h4, h5, h6 {

@@ -1,8 +1,11 @@
-@import 'helpers/general-needs/general-needs';
+@import "./helpers/general-needs/mixins";
+@import "./helpers/general-needs/functions";
+@import "./helpers/general-needs/rem";
+@import "./helpers/general-needs/rfs";
 
 @include scrollBar;
 
-/*Starting styles*/
+/*Starting styles */
 * {
   outline: none;
 }
@@ -98,7 +101,7 @@ svg {
 body {
   position: relative;
   background-color: #e1e1e1;
-  @include background("../img/pattern-bg.png", $repeat: repeat, $position: 0 0, $size: auto);
+  @include background("../img/pattern-bg.png", $rep: repeat, $pos: 0 0, $size: auto);
 }
 
 .header,

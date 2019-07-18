@@ -1,17 +1,20 @@
+@import "../general-needs/mixins";
+@import "../general-needs/rem";
+@import "../general-needs/rfs";
 /*Page navigation*/
 .page-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     @include mx-auto;
-    margin-top: .5rem;
-    margin-bottom: 2rem;
+    margin-top: rem(8px);
+    margin-bottom: rem(32px);
 
     .prev, .next {
         position: relative;
         display: block;
-        width: 15px;
-        height: 15px;
+        width: rem(15px);
+        height: rem(15px);
         a {
             position: relative;
             display: block;
@@ -34,10 +37,10 @@
     }
 
     .prev {
-        margin-right: 1rem;
+        margin-right: rem(16px);
     }
     .next {
-        margin-left: 1rem;
+        margin-left: rem(16px);
     }
 
     &-number-wrap {
@@ -45,7 +48,7 @@
         justify-content: space-around;
         align-items: center;
         color: #333333;
-        font-size: rem(20px);
+        @include rfs(20);
         font-weight: 700;
         line-height: 1em;
 
