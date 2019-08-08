@@ -1,3 +1,4 @@
+@import "../general-needs/variables";
 *,
 *::before,
 *::after {
@@ -25,11 +26,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  font-weight: $font-weight-base;
-  line-height: $line-height-base;
-  color: $body-color;
+  font-family: $ff-base;
+  font-size: $fz-base;
+  font-weight: $fw-base;
+  line-height: $lh-base;
+  color: $body-clr;
   text-align: left;
   background-color: $body-bg;
 }
@@ -46,12 +47,12 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: $headings-margin-bottom;
+  margin-bottom: $headings-mb;
 }
 
 p {
   margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+  margin-bottom: $paragraph-mb;
 }
 
 abbr[title],
@@ -80,10 +81,6 @@ ul ul,
 ol ul,
 ul ol {
   margin-bottom: 0;
-}
-
-dt {
-  font-weight: $dt-font-weight;
 }
 
 dd {
@@ -120,13 +117,13 @@ sub { bottom: -.25em; }
 sup { top: -.5em; }
 
 a {
-  color: $link-color;
+  color: $link-clr;
   text-decoration: $link-decoration;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
   @include hover {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+    color: $link-hvr-clr;
+    text-decoration: $link-hvr-decoration;
   }
 }
 
@@ -148,7 +145,6 @@ pre,
 code,
 kbd,
 samp {
-  font-family: $font-family-monospace;
   font-size: 1em;
 }
 
@@ -177,21 +173,13 @@ table {
   border-collapse: collapse;
 }
 
-caption {
-  padding-top: $table-cell-padding;
-  padding-bottom: $table-cell-padding;
-  color: $table-caption-color;
-  text-align: left;
-  caption-side: bottom;
-}
-
 th {
   text-align: inherit;
 }
 
 label {
   display: inline-block;
-  margin-bottom: $label-margin-bottom;
+  margin-bottom: $label-mb;
 }
 
 button {

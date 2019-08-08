@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./media-queries";
+@import "./rem";
 
 @mixin mx-auto {
   margin: {
@@ -8,8 +9,16 @@
   }
 }
 
-//Bread crumb
-@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-color, $bg: false, $bgPath: "") {
+@mixin background($path: false, $rep: no-repeat, $pos: center center, $size: cover) {
+  @if $path {
+  background-image: url('' + $path);
+}
+  background-repeat: $rep;
+  background-position: $pos;
+  background-size: $size;
+}
+
+@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-clr, $bg: false, $bgPath: "") {
   .bread-crumb {
 	ul {
 	  display: flex;
@@ -31,7 +40,7 @@
 		  font-weight: inherit;
 		  line-height: inherit;
 		  word-break: inherit;
-		  transition: color $transition;
+		  transition: color $trs;
 
 		  @if $bg {
 			position: relative;
@@ -45,7 +54,7 @@
 			  width: 2em;
 			  margin: 0;
 			  @include background($bgPath, $size: 50%, $rep: no-repeat, $pos: 50% 50%);
-			  transition: transform $transition;
+			  transition: transform $trs;
 			}
 			&:hover {
 			  &::after {
@@ -171,13 +180,6 @@
   overflow: hidden;
 }
 
-@mixin background($path: "", $rep: no-repeat, $pos: center center, $size: cover) {
-  background-image: url('' + $path);
-  background-repeat: $rep;
-  background-position: $pos;
-  background-size: $size;
-}
-
 @mixin textInherit($fz: inherit, $fw: inherit, $fs: inherit, $color: inherit, $lh: inherit,$wb: normal) {
   font: {
 	size: $fz;
@@ -204,7 +206,6 @@
 	@content;
   }
 }
-
 /*END Media query for browsers*/
 
 @mixin scrollBar {

@@ -1,52 +1,40 @@
-/* colors vaiables start*/
-$white: #ffffff;
-$black: #000000;
-$base-color                : #212121;
-$body-color                : #212121;
-$body-bg                   : $white;
-/*Colors variables end*/
+@import "functions";
+/*Global colors*/
+$white					 : #ffffff;
+$black					 : #111111;
+$base-clr                : $black;
+$body-clr                : #212121;
+$body-bg                 : $white;
 
-$transition: .4s;
+/*Transitions*/
+$trs					 : .4s;
 
-/*Reboot variables start*/
-$font-family-base: "Roboto", sans-serif;
-$font-size-base: 1rem;
-$font-weight-base: normal;
-$line-height-base: 1.35;
+/*Global fonts settings*/
+$ff-base				 : "Roboto", sans-serif;
+$fz-base				 : 1rem;
+$fw-base				 : normal;
+$lh-base				 : 1.35;
 
-$body-color: black;
-$body-bg: white;
+$headings-mb			 : 0;
+$paragraph-mb			 : 0;
+$label-mb				 : 0;
 
-$headings-margin-bottom: 0;
-$paragraph-margin-bottom: 0;
-$label-margin-bottom: 0;
+$link-clr				 : $black;
+$link-decoration		 : none;
+$link-hvr-clr			 : darken($link-clr, 15%);
+$link-hvr-decoration	 : none;
 
-$link-color: $black;
-$link-decoration: none;
-$link-hover-color: darken($link-color, 15%);
-$link-hover-decoration: none;
-/*Reboot vaiables end*/
+/*Scroll-bar settings*/
+$fireFoxTrackColor		 : rgba($base-clr, .5);
+$fireFoxThumbColor		 : rgba(#fff, .8);
 
-/*Scroll-bar styles*/
-$fireFoxTrackColor		   : rgba($base-color, .5);
-$fireFoxThumbColor		   : rgba(#fff, .8);
-
-$chromeTrackColor          : rgba($base-color, .5);
-$chromeThumbColor          : rgba(#fff, .5);
-$chromeTrackWidth          : .5rem;
-/*Scroll-bar styles END*/
-
-/*Common type code style*/
-$heading-type-mb           : 1em;
-$heading-type-line-height  : 1em;
-$paragraph-type-mb         : 1.5em;
-$link-type-color           : #1b63ff;
-$link-type-color-hover     : darken($link-type-color, 15%);
-/*Common type code style END*/
+$chromeTrackColor        : rgba($base-clr, .5);
+$chromeThumbColor        : rgba(#fff, .5);
+$chromeTrackWidth        : .5rem;
 
 /* Grid variables start*/
-$containerInset			   : 1140;
-$containerMax			   : 1170px;
+$containerMax			 : 1170px;
+$containerInset			 : unitless($containerMax) - 30;
 
 $grid-breakpoints: (
 		xs: 0,
@@ -63,19 +51,17 @@ $container-max-widths: (
 		xl: $containerMax
 );
 
-$grid-columns: 12;
-$grid-gutter-width: 30px;
-/* Grid variables end*/
+$grid-columns			  : 12;
+$grid-gutter-width		  : 30px;
 
 /* Responsive font-size start*/
-$rfs-minimum-font-size: 16px;
-$rfs-font-size-unit: rem;
-$rfs-breakpoint: 1200px;
-$rfs-breakpoint-unit: px;
-$rfs-two-dimensional: false;
-$rfs-factor: 10;
-$rfs-class: false;
-$rfs-rem-value: 16;
-$rfs-safari-iframe-resize-bug-fix: false;
-$enable-responsive-font-sizes: true;
-/* Responsive font-size end*/
+$rfs-minimum-font-size	  			: 16px;
+$rfs-font-size-unit		  			: rem;
+$rfs-breakpoint			  			: 1200px;
+$rfs-breakpoint-unit	  			: px;
+$rfs-two-dimensional				: false;
+$rfs-factor							: 10;
+$rfs-class							: false;
+$rfs-rem-value						: 16;
+$rfs-safari-iframe-resize-bug-fix	: false;
+$enable-responsive-font-sizes		: true;
