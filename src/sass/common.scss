@@ -1,6 +1,4 @@
-@import "@general-needs/mixins";
-@import "@general-needs/functions";
-@import "@general-needs/rfs";
+@import "@project-reboot";
 
 @include scrollBar;
 
@@ -39,25 +37,19 @@ body {
 }
 
 button {
+  display: inline-flex;
   border: none;
   padding: 0;
   margin: 0;
   background-color: transparent;
-
-  &[type="button"],
-  &[type="submit"] {
-	&:focus {
-	  outline: none;
-	}
-  }
-
-  &:focus {
-	outline: none;
-  }
 }
 
 input,
-textarea {
+textarea,
+a,
+button,
+button[type="button"],
+button[type="submit"] {
   &:focus {
 	outline: none;
   }
@@ -74,14 +66,14 @@ svg {
 
 ::selection {
   background: rgba($base-clr, 0.4);
-  color: #fff;
+  color: $white;
 }
 
 .link-wrapper {
   display: block;
 }
 
-/*Starting styles END*/
+/*Starting styles END */
 
 //Presentation
 body {
@@ -94,8 +86,7 @@ body {
 .footer {
   @include rfs(35);
   text-align: center;
-  color: #333;
-  font-weight: 400;
+  color: $black;
   background-color: rgba(#000, .3);
   line-height: 1em;
   padding: 0.5em 0;
@@ -103,12 +94,15 @@ body {
   p {
 	text-shadow: 8px 8px 6px rgba(#000, 0.4);
 	text-transform: lowercase;
+	font-style: italic;
+	margin-bottom: 0;
   }
 }
 
 .header {
   box-shadow: 15px 15px 20px 0 rgba(#000, 0.25);
   border-bottom: 1px solid rgba(#fff, .4);
+
   ul {
 	@include list-reset;
   }
@@ -138,12 +132,10 @@ main {
 	}
 
 	&-icon {
-	  position: relative;
+	  @include responsive-ratio(1, 1, true);
 	  border-radius: 3px;
-	  overflow: hidden;
 	  background-color: rgba(#fff, 0.1);
 	  border: 1px ridge rgba(#000, .4);
-	  @include responsive-ratio(1, 1, true);
 	  background-image: radial-gradient(transparent, rgba(#666, .15));
 
 	  p {
@@ -154,16 +146,13 @@ main {
 		text-align: center;
 		line-height: 1;
 		color: #56332B;
+		margin-bottom: 0;
 	  }
 
 	  img {
 		@include absoluteCenter(95%, 95%);
 	  }
 	}
-  }
-
-  .block {
-	height: 500px;
   }
 }
 

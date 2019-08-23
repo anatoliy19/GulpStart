@@ -1,5 +1,5 @@
-@import "../general-needs/mixins";
-@import "../general-needs/rfs";
+@import "../helpers/mixins";
+@import "../helpers/vendor/rfs";
 .preloader {
   position: fixed;
   overflow: hidden;

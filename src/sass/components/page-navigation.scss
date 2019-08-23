@@ -1,6 +1,5 @@
-@import "../general-needs/mixins";
-@import "../general-needs/rem";
-@import "../general-needs/rfs";
+@import "../helpers/mixins";
+@import "../helpers/vendor/rfs";
 /*Page navigation*/
 .page-nav {
     display: flex;

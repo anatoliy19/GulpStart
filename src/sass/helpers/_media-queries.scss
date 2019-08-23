@@ -1,10 +1,4 @@
-$m:  375px;
-$sm: 576px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
-$vl: 1400px;
-$sl: 1600px;
+@import "variables";
 
 @mixin mediaOnly($widthFrom, $widthTo, $device: 'all') {
  @media #{$device} and (min-width: #{$widthFrom}) and (max-width: #{$widthTo - 1px}) {

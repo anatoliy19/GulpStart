@@ -1,7 +1,3 @@
-@import "variables";
-@import "media-queries";
-@import "rfs";
-
 @mixin mx-auto {
   margin: {
 	left: auto;
@@ -18,7 +14,7 @@
   background-size: $size;
 }
 
-@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $base-clr, $bg: false, $bgPath: "") {
+@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $base-clr, $bgPath: false) {
   .bread-crumb {
 	ul {
 	  display: flex;
@@ -42,7 +38,7 @@
 		  word-break: inherit;
 		  transition: color $trs;
 
-		  @if $bg {
+		  @if $bgPath {
 			position: relative;
 			display: block;
 			padding-right: 2em;
@@ -94,6 +90,8 @@
 }
 
 @mixin responsive-ratio($x,$y, $pseudo: false) {
+  position: relative;
+  overflow: hidden;
   $padding: unquote(( $y / $x ) * 100 + '%');
   @if $pseudo {
 	&:before {
@@ -156,11 +154,11 @@
   }
   &:hover {
 	&::after {
-	  animation: blik $speed linear;
+	  animation: flare $speed linear;
 	}
   }
 
-  @keyframes blik {
+  @keyframes flare {
 	0% {
 	  background-image: linear-gradient(45deg, rgba(#fff, $loop), transparent, transparent);
 	}
@@ -214,17 +212,16 @@
 
 @mixin scrollBar {
   html {
-	width: 100vw;
 	/*IE 11*/
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 
 	/*FireFox*/
 	scrollbar-width: thin;
-	scrollbar-color: $fireFoxTrackColor $fireFoxThumbColor;
+	scrollbar-color: $firefox-track-color $firefox-thumb-color;
 
 	/*WebKit*/
 	::-webkit-scrollbar {
-	  width: $chromeTrackWidth;
+	  width: $chrome-track-width;
 	  background: none;
 	}
 
@@ -235,11 +232,11 @@
 	}
 
 	::-webkit-scrollbar-track {
-	  background-color: $chromeTrackColor;
+	  background-color: $chrome-track-color;
 	}
 
 	::-webkit-scrollbar-thumb {
-	  background-color: $chromeThumbColor;
+	  background-color: $chrome-thumb-color;
 	  border-radius: 5px;
 	}
 

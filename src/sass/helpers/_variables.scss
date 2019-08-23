@@ -8,45 +8,49 @@ $body-bg                 : $white;
 /*Transitions*/
 $trs					 : .4s;
 
-/*Global fonts settings*/
+/*Fonts settings*/
 $ff-base				 : "Roboto", sans-serif;
-$fz-base				 : 1rem;
-$fw-base				 : normal;
-$lh-base				 : 1.35;
 
 /*Scroll-bar settings*/
-$fireFoxTrackColor		 : rgba($base-clr, .5);
-$fireFoxThumbColor		 : rgba(#fff, .8);
+$firefox-track-color     : rgba($base-clr, .5);
+$firefox-thumb-color     : rgba(#fff, .8);
 
-$chromeTrackColor        : rgba($base-clr, .5);
-$chromeThumbColor        : rgba(#fff, .5);
-$chromeTrackWidth        : .5rem;
+$chrome-track-color      : rgba($base-clr, .5);
+$chrome-thumb-color      : rgba(#fff, .5);
+$chrome-track-width      : .5rem;
 
-/* Grid variables start*/
-$containerMax			 : 1170px;
-$containerInset			 : strip-unit($containerMax) - 30;
+/*Grid variables start*/
+$m:  414px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$vl: 1400px;
+$sl: 1600px;
+
+$container-width		 : strip-unit($xl) - 30;
 
 $grid-breakpoints: (
 		xs: 0,
-		m: 375px,
-		sm: 576px,
-		md: 768px,
-		lg: 992px,
-		xl: 1200px
+		m:  $m,
+		sm: $sm,
+		md: $md,
+		lg: $lg,
+		xl: $xl
 );
 
 $container-max-widths: (
-		m: 400px,
-		sm: 540px,
-		md: 720px,
-		lg: 960px,
-		xl: $containerMax
+		m:  (strip-unit($m) - 39)+px,
+		sm: (strip-unit($sm) - 36)+px,
+		md: (strip-unit($md) - 48)+px,
+		lg: (strip-unit($lg) - 32)+px,
+		xl: (strip-unit($xl) - 30)+px
 );
 
 $grid-columns			  : 12;
 $grid-gutter-width		  : 30px;
 
-/* Responsive font-size start*/
+/*Responsive font-size start*/
 $rfs-minimum-font-size	  			: 16px;
 $rfs-font-size-unit		  			: rem;
 $rfs-breakpoint			  			: 1200px;
