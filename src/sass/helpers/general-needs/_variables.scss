@@ -3,7 +3,6 @@
 $white					 : #ffffff;
 $black					 : #111111;
 $base-clr                : $black;
-$body-clr                : #212121;
 $body-bg                 : $white;
 
 /*Transitions*/
@@ -15,15 +14,6 @@ $fz-base				 : 1rem;
 $fw-base				 : normal;
 $lh-base				 : 1.35;
 
-$headings-mb			 : 0;
-$paragraph-mb			 : 0;
-$label-mb				 : 0;
-
-$link-clr				 : $black;
-$link-decoration		 : none;
-$link-hvr-clr			 : darken($link-clr, 15%);
-$link-hvr-decoration	 : none;
-
 /*Scroll-bar settings*/
 $fireFoxTrackColor		 : rgba($base-clr, .5);
 $fireFoxThumbColor		 : rgba(#fff, .8);
@@ -34,10 +24,11 @@ $chromeTrackWidth        : .5rem;
 
 /* Grid variables start*/
 $containerMax			 : 1170px;
-$containerInset			 : unitless($containerMax) - 30;
+$containerInset			 : strip-unit($containerMax) - 30;
 
 $grid-breakpoints: (
 		xs: 0,
+		m: 375px,
 		sm: 576px,
 		md: 768px,
 		lg: 992px,
@@ -45,6 +36,7 @@ $grid-breakpoints: (
 );
 
 $container-max-widths: (
+		m: 400px,
 		sm: 540px,
 		md: 720px,
 		lg: 960px,

@@ -1,11 +1,10 @@
-@import "./helpers/general-needs/mixins";
-@import "./helpers/general-needs/functions";
-@import "./helpers/general-needs/rem";
-@import "./helpers/general-needs/rfs";
+@import "@general-needs/mixins";
+@import "@general-needs/functions";
+@import "@general-needs/rfs";
 
 @include scrollBar;
 
-/*Starting styles */
+/*Starting styles*/
 * {
   outline: none;
 }
@@ -21,12 +20,13 @@ html {
 }
 
 body {
+  font-family: $ff-base;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
 
   &.overflow {
-  overflow: hidden;
+	overflow: hidden;
   }
 }
 
@@ -38,14 +38,6 @@ body {
   margin-top: auto;
 }
 
-ul,
-ol,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 button {
   border: none;
   padding: 0;
@@ -54,26 +46,20 @@ button {
 
   &[type="button"],
   &[type="submit"] {
+	&:focus {
+	  outline: none;
+	}
+  }
+
   &:focus {
-    outline: none;
-  }
-  }
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	outline: none;
   }
 }
 
 input,
 textarea {
   &:focus {
-  outline: none;
+	outline: none;
   }
 }
 
@@ -115,14 +101,17 @@ body {
   padding: 0.5em 0;
 
   p {
-  text-shadow: 8px 8px 6px rgba(#000, 0.4);
-  text-transform: lowercase;
+	text-shadow: 8px 8px 6px rgba(#000, 0.4);
+	text-transform: lowercase;
   }
 }
 
 .header {
   box-shadow: 15px 15px 20px 0 rgba(#000, 0.25);
   border-bottom: 1px solid rgba(#fff, .4);
+  ul {
+	@include list-reset;
+  }
 }
 
 .footer {
@@ -133,48 +122,48 @@ body {
 main {
 
   @include mediaToUp($m) {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
   }
 
   .item {
-  width: 150px;
-  @include mx-auto;
-  box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
-  @include mediaToDown($sm) {
-    width: 100px;
-  }
+	width: 150px;
+	@include mx-auto;
+	box-shadow: 20px 20px 20px 0 rgba(#000, 0.15);
+	@include mediaToDown($sm) {
+	  width: 100px;
+	}
 
-  &-icon {
-    position: relative;
-    border-radius: 3px;
-    overflow: hidden;
-    background-color: rgba(#fff, 0.1);
-    border: 1px ridge rgba(#000, .4);
-    @include responsive-ratio(1, 1, true);
-    background-image: radial-gradient(transparent, rgba(#666, .15));
+	&-icon {
+	  position: relative;
+	  border-radius: 3px;
+	  overflow: hidden;
+	  background-color: rgba(#fff, 0.1);
+	  border: 1px ridge rgba(#000, .4);
+	  @include responsive-ratio(1, 1, true);
+	  background-image: radial-gradient(transparent, rgba(#666, .15));
 
-    p {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    line-height: 1;
-    color: #56332B;
-    }
+	  p {
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		line-height: 1;
+		color: #56332B;
+	  }
 
-    img {
-    @include absoluteCenter(95%, 95%);
-    }
-  }
+	  img {
+		@include absoluteCenter(95%, 95%);
+	  }
+	}
   }
 
   .block {
-  height: 500px;
+	height: 500px;
   }
 }
 

@@ -1,6 +1,6 @@
-@import "./variables";
-@import "./media-queries";
-@import "./rem";
+@import "variables";
+@import "media-queries";
+@import "rfs";
 
 @mixin mx-auto {
   margin: {
@@ -18,7 +18,7 @@
   background-size: $size;
 }
 
-@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $body-clr, $bg: false, $bgPath: "") {
+@mixin breadCrumb($fz: 16, $content: "/", $fw: 400, $margin: 2em 0, $color: $base-clr, $bg: false, $bgPath: "") {
   .bread-crumb {
 	ul {
 	  display: flex;
@@ -147,7 +147,7 @@
   max-height: $mh;
 }
 
-@mixin blik($loop: .2, $center: .4, $speed: 120ms) {
+@mixin flare($loop: .2, $center: .4, $speed: 120ms) {
   &::after {
 	@include absolute;
 	content: "";
@@ -191,6 +191,10 @@
   word-break: $wb;
 }
 
+@mixin list-reset {
+  padding-left: 0;
+  list-style: none;
+}
 /*Media query for browsers*/
 @mixin media-IE {
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

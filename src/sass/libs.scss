@@ -1,18 +1,14 @@
-@import 'helpers/general-needs/variables';
-@import 'helpers/general-needs/media-queries';
-@import 'helpers/general-needs/fonts';
+@import '@general-needs/variables';
+@import '@general-needs/media-queries';
+@import '@general-needs/fonts';
 
-@import '~modules/bootstrap/scss/functions';
-@import '~modules/bootstrap/scss/variables';
-@import '~modules/bootstrap/scss/mixins';
-@import 'helpers/bootstrap/class-m';
-@import 'helpers/utilites/reboot';
+@import '~bootstrap/scss/bootstrap-reboot' ;
 
-@import 'helpers/bootstrap/text-align';
-@import 'helpers/bootstrap/spacing';
-@import 'helpers/bootstrap/display';
-@import 'helpers/bootstrap/flex';
-@import 'helpers/bootstrap/container-widths';
-@import 'helpers/utilites/preloader';
+@import '@bootstrap/text-align';
+@import '@bootstrap/spacing';
+@import '@bootstrap/display';
+@import '@bootstrap/flex';
+@import '@bootstrap/container-widths';
+@import '@utilites/preloader' ;
 
 
