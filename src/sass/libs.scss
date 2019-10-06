@@ -1,14 +1,14 @@
-@import "../fonts/roboto/stylesheet.css";
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/mixins';
 
-@import '~bootstrap/scss/bootstrap-reboot';
+@import "helpers/variables";
 
-@import '@variables';
-@import '@bootstrap/text-align';
-@import '@bootstrap/spacing';
-@import '@bootstrap/display';
-@import '@bootstrap/flex';
-@import '@bootstrap/container-widths';
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
 
-@import 'components/preloader';
+@import '../fonts/roboto/stylesheet.css';
 
-
+@import "../../node_modules/bootstrap/scss/utilities/text";
+@import "../../node_modules/bootstrap/scss/utilities/spacing";
+@import "../../node_modules/bootstrap/scss/utilities/display";
+@import "../../node_modules/bootstrap/scss/utilities/flex" ;

@@ -1,63 +1,160 @@
-@import "functions";
-/*Global colors*/
-$white					 : #ffffff;
-$black					 : #111111;
-$base-clr                : $black;
-$body-bg                 : $white;
+$black:           #111111;
+$white:           #ffffff;
+$primary:         $black;
+$secondary:       #cf2524;
+$success:         #28a745;
+$info:            #17a2b8;
+$warning:         #ffc107;
+$danger:          #dc3545;
+$light:           #f8f9fa;
+$dark:            #343a40;
+$gold:            #d0ad40;
+$gray:            #666666;
 
 /*Transitions*/
-$trs					 : .4s;
+$trs: .4s;
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
 
-/*Fonts settings*/
-$ff-base				 : "Roboto", sans-serif;
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .25),
+      2: ($spacer * .5),
+      3: $spacer,
+      4: ($spacer * 1.5),
+      5: ($spacer * 3)
+    ),
+    $spacers
+);
 
-/*Scroll-bar settings*/
-$firefox-track-color     : rgba($base-clr, .5);
-$firefox-thumb-color     : rgba(#fff, .8);
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+    (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto
+    ),
+    $sizes
+);
 
-$chrome-track-color      : rgba($base-clr, .5);
-$chrome-thumb-color      : rgba(#fff, .5);
-$chrome-track-width      : .5rem;
+// Links
+//
+// Style anchor elements.
 
-/*Grid variables start*/
-$m:  414px;
-$sm: 576px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
-$vl: 1400px;
-$sl: 1600px;
+$link-color:                              $black;
+$link-decoration:                         none;
+$link-hover-color:                        $black !default;
+$link-hover-decoration:                   none;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
 
-$container-width		 : strip-unit($xl) - 30;
+// Paragraphs
+//
+// Style p element.
+
+$paragraph-margin-bottom:   1rem !default;
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-		xs: 0,
-		m:  $m,
-		sm: $sm,
-		md: $md,
-		lg: $lg,
-		xl: $xl
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  vl: 1346px
 );
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-		m:  (strip-unit($m) - 39)+px,
-		sm: (strip-unit($sm) - 36)+px,
-		md: (strip-unit($md) - 48)+px,
-		lg: (strip-unit($lg) - 32)+px,
-		xl: (strip-unit($xl) - 30)+px
+  sm: 540px,
+  md: 740px,
+  lg: 984px,
+  xl: 1170px,
+  vl: 1344px
 );
 
-$grid-columns			  : 12;
-$grid-gutter-width		  : 30px;
+@include _assert-ascending($container-max-widths, "$container-max-widths");
 
-/*Responsive font-size start*/
-$rfs-minimum-font-size	  			: 16px;
-$rfs-font-size-unit		  			: rem;
-$rfs-breakpoint			  			: 1200px;
-$rfs-breakpoint-unit	  			: px;
-$rfs-two-dimensional				: false;
-$rfs-factor							: 10;
-$rfs-class							: false;
-$rfs-rem-value						: 16;
-$rfs-safari-iframe-resize-bug-fix	: false;
-$enable-responsive-font-sizes		: true;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12;
+$grid-gutter-width:           30px;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-base:            'Roboto', sans-serif;
+
+$font-color-base:             $black;
+
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-bold:            700;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal;
+$line-height-base:            1.425 !default;
+
+$h1-font-size:                32 !default;
+$h2-font-size:                24 !default;
+$h3-font-size:                19 !default;
+$h4-font-size:                16 !default;
+$h5-font-size:                13 !default;
+$h6-font-size:                11 !default;
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              null !default;
+
+/*Scroll-bar settings*/
+$fireFoxTrackColor:           rgba($primary, .1);
+$fireFoxThumbColor:           $primary;
+
+$chromeTrackColor:            rgba($primary, .1);
+$chromeThumbColor:            $primary;
+$chromeTrackWidth:            .5rem;
+
+/*Responsive font-size settings*/
+$rfs-minimum-font-size              : 16px;
+$rfs-font-size-unit                 : rem;
+$rfs-breakpoint                     : 1200px;
+$rfs-breakpoint-unit                : px;
+$rfs-two-dimensional                : false;
+$rfs-factor                         : 10;
+$rfs-class                          : false;
+$rfs-rem-value                      : 16;
+$rfs-safari-iframe-resize-bug-fix   : false;
+$enable-responsive-font-sizes       : true;

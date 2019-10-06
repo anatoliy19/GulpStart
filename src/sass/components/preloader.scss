@@ -1,5 +1,4 @@
-@import "../helpers/mixins";
-@import "../helpers/vendor/rfs";
+@import "../helpers/share";
 .preloader {
   position: fixed;
   overflow: hidden;
@@ -10,25 +9,25 @@
   background: #000;
   z-index: 100000;
   &-item {
-	@include absoluteCenter(none, none);
+    @include absoluteCenter(none, none);
   }
   &-figure {
-	position: relative;
-	width: 200px;
-	overflow: hidden;
-	@include responsive-ratio(1, .8, true);
-	img {
-	  @include absoluteCenter;
-	}
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    @include responsive-ratio(1, .8, true);
+    img {
+      @include absoluteCenter;
+    }
   }
   &-text {
-	font-family: Arial, sans-serif;
-	text-align: center;
-	p {
-	  @include rfs(18);
-	  color: #fff;
-	  line-height: 1em;
-	  text-shadow: 1px 1px 10px rgba(#fff, .7);
-	}
+    font-family: Arial, sans-serif;
+    text-align: center;
+    p {
+      @include rfs(18);
+      color: #fff;
+      line-height: 1em;
+      text-shadow: 1px 1px 10px rgba(#fff, .7);
+    }
   }
 }

@@ -4,8 +4,7 @@ module.exports = function() {
 		return $.gulp.src($.path.src.sass, {since: $.gulp.lastRun('sass:development')})
 		.pipe($.sourcemaps.init())
 		.pipe($.aliases({
-			'~': 'node_modules/',
-			'@': 'src/sass/helpers/'
+			'~': 'node_modules/'
 		}))
 		.pipe($.sass({outputStyle: 'compact'}).on('error', $.sass.logError))
 		.pipe($.autoprefixer())
@@ -17,8 +16,7 @@ module.exports = function() {
 	$.gulp.task('sass:production', function () {
 		return $.gulp.src($.path.src.sass)
 		.pipe($.aliases({
-			'~': 'node_modules/',
-			'@': 'src/sass/helpers/'
+			'~': 'node_modules/'
 		}))
 		.pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
 		.pipe($.autoprefixer())

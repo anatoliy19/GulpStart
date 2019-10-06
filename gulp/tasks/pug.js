@@ -8,7 +8,7 @@ module.exports = function () {
 				this.emit('end');
 			})
 			.pipe($.cached())
-			.pipe($.htmlBeautify({indentSize: 4}))
+			.pipe($.htmlBeautify({indentSize: 2}))
 			.pipe($.gulp.dest($.path.build.pug))
 			.on('end', $.browserSync.reload)
 	});

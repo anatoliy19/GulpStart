@@ -33,7 +33,7 @@ global.$ = {
             sass: 'src/sass/*.scss',
             js: 'src/js/main.js',
             fonts: 'src/fonts/**/*.*',
-            img: 'src/img/images/**/*.*',
+            img: 'src/img/**/*.*',
             svg: 'src/img/sprite/*.svg'
         },
         build: {
@@ -49,7 +49,7 @@ global.$ = {
             html: 'src/html/*.html',
             sass: 'src/sass/**/*.scss',
             js: 'src/js/**/*.js',
-            img: 'src/img/images/**/*.*',
+            img: 'src/img/**/*.*',
             svg: 'src/img/sprite/*.svg',
             fonts: 'src/fonts/**/*.*'
         }
