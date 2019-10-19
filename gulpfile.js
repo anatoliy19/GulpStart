@@ -34,7 +34,7 @@ global.$ = {
             js: 'src/js/main.js',
             fonts: 'src/fonts/**/*.*',
             img: 'src/img/**/*.*',
-            svg: 'src/img/sprite/*.svg'
+            svg: 'src/sprite/*.svg'
         },
         build: {
             pug: 'build/',
@@ -50,7 +50,7 @@ global.$ = {
             sass: 'src/sass/**/*.scss',
             js: 'src/js/**/*.js',
             img: 'src/img/**/*.*',
-            svg: 'src/img/sprite/*.svg',
+            svg: 'src/sprite/*.svg',
             fonts: 'src/fonts/**/*.*'
         }
     }

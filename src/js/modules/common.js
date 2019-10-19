@@ -1,9 +1,8 @@
 import {preloader} from '../utilites/helpers';
 import {variables as $v} from '../modules/variables';
-import {objectFitFromIe} from "../utilites/helpers";
+import "../utilites/object-fit";
 
 preloader(350, 450);
 
 $(function () {
-	objectFitFromIe();
 });
